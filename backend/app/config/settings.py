@@ -1,11 +1,14 @@
-from typing import List
+import json
+from typing import Any, List, Union
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    CORS_ORIGINS: List[str] = [
+    CORS_ORIGINS: Union[List[str], str] = [
         "http://localhost:5173",
+        "http://localhost:8081",
         "http://localhost:3000",
         "http://localhost",
         "http://127.0.0.1",
@@ -61,6 +64,24 @@ class Settings(BaseSettings):
     # Redeploy Webhook Settings
     DEPLOY_WEBHOOK_URL: str = ""
 
+    @field_validator("CORS_ORIGINS", mode="before")
+    @classmethod
+    def assemble_cors_origins(cls, v: Any) -> List[str]:
+        if isinstance(v, str):
+            if not v.strip():
+                return []
+            if v.strip() == "*":
+                return ["*"]
+            if v.startswith("[") and v.endswith("]"):
+                try:
+                    return json.loads(v)
+                except Exception:
+                    pass
+            return [item.strip() for item in v.split(",") if item.strip()]
+        elif isinstance(v, (list, tuple)):
+            return list(v)
+        return v
+
     model_config = SettingsConfigDict(
         env_file=".env", env_file_encoding="utf-8", extra="ignore"
     )
@@ -69,13 +90,15 @@ class Settings(BaseSettings):
         super().__init__(**values)
         if not self.SUPABASE_JWT_SECRET:
             self.SUPABASE_JWT_SECRET = self.JWT_SECRET_KEY
-        if self.ENVIRONMENT.lower() != "development":
+        if self.ENVIRONMENT.lower() != "development" and isinstance(
+            self.CORS_ORIGINS, list
+        ):
             self.CORS_ORIGINS = [
                 origin
                 for origin in self.CORS_ORIGINS
                 if "localhost" not in origin and "127.0.0.1" not in origin
             ]
-        if self.CORS_ALLOWED_ORIGINS:
+        if self.CORS_ALLOWED_ORIGINS and isinstance(self.CORS_ORIGINS, list):
             origins = [
                 o.strip() for o in self.CORS_ALLOWED_ORIGINS.split(",") if o.strip()
             ]
