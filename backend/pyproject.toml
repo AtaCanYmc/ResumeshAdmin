@@ -6,7 +6,6 @@ build-backend = "hatchling.build"
 name = "resumesh-admin-backend"
 version = "0.1.0"
 description = "FastAPI Management & Admin Dashboard Service for ResuMesh"
-readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.10"
 dependencies = [

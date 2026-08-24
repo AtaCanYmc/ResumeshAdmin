@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 COPY pyproject.toml requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt && pip install --no-cache-dir -e .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Configure Playwright browser path to be globally accessible and install chromium dependencies
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
@@ -14,6 +14,7 @@ RUN mkdir -p /ms-playwright && \
     chmod -R 777 /ms-playwright
 
 COPY . .
+RUN pip install --no-cache-dir --no-deps -e .
 
 ENV PYTHONPATH=/app
 
