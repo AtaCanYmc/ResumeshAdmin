@@ -1,0 +1,4 @@
+-- Bu dosya isteğe bağlı başlangıç verilerini (seeding) barındırmak için kullanılabilir.
+-- Örnek:
+-- INSERT INTO experiences (company_name, title, start_date, is_current, description)
+-- VALUES ('ResuMesh', 'Open Source Contributor', '2023-01-01', true, 'Building intelligent portfolio systems.');

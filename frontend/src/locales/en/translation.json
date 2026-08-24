@@ -1,0 +1,96 @@
+{
+  "wakeup": {
+    "title": "Waking up the server",
+    "description": "ResuMesh automatically spins up cloud resources. This process can take around 30-50 seconds if the server is starting for the first time.",
+    "status": "Waiting for session..."
+  },
+  "nav": {
+    "about": "About",
+    "experiences": "Experiences",
+    "educations": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "articles": "Articles",
+    "certificates": "Certificates",
+    "admin": "Admin"
+  },
+  "search": {
+    "placeholder": "Search skills, projects, certificates or articles...",
+    "open": "Open Search",
+    "close": "Close Search",
+    "clear": "Clear Search",
+    "noResultsTitle": "No results found",
+    "noResultsDesc": "Please try again with a different term.",
+    "projects": "Projects",
+    "experiences": "Experiences",
+    "articles": "Articles",
+    "certificates": "Certificates"
+  },
+  "hero": {
+    "downloadResume": "Download Resume",
+    "downloadingResume": "Downloading PDF...",
+    "viewProjects": "View Projects"
+  },
+  "common": {
+    "noDescription": "No description available.",
+    "readMore": "Read More",
+    "viewOnGithub": "View on GitHub"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "My open source and personal projects.",
+    "filter": "Platform: {{platform}}",
+    "emptyTitle": "No Projects Found",
+    "emptyDesc": "There are no published projects in the system yet. Please check back later."
+  },
+  "articles": {
+    "title": "Articles",
+    "subtitle": "My technical writings and posts.",
+    "emptyTitle": "No Articles Found",
+    "emptyDesc": "There are no published articles on this platform ({{platform}}) yet."
+  },
+  "certificates": {
+    "title": "Certificates",
+    "subtitle": "My licenses and competency certificates.",
+    "emptyTitle": "No Certificates Found",
+    "emptyDesc": "There are no published certificates in the system yet."
+  },
+  "experiences": {
+    "title": "Work Experience",
+    "subtitle": "My career journey and professional background.",
+    "emptyTitle": "No Experience Found",
+    "emptyDesc": "No experience has been added yet."
+  },
+  "educations": {
+    "title": "Education",
+    "subtitle": "My academic background and learning journey.",
+    "emptyTitle": "No Education Found",
+    "emptyDesc": "No education history has been added yet."
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technical skills and areas of expertise.",
+    "emptyTitle": "No Skills Found",
+    "emptyDesc": "No skills have been added yet."
+  },
+  "logs": {
+    "empty": "No logs to display."
+  },
+  "home": {
+    "greeting": "Hi, I'm",
+    "featuredProjects": "Featured Projects",
+    "careerTimeline": "Career Timeline",
+    "skills": "Skills & Technologies",
+    "skillsSubtitle": "A categorized overview of the technologies and skills I specialize in.",
+    "recentArticles": "Recent Articles",
+    "readArticle": "Read Article"
+  },
+  "footer": {
+    "connect": "Connect",
+    "allRightsReserved": "All rights reserved.",
+    "builtWith": "Built with",
+    "by": "by",
+    "aboutTitle": "Why ResuMesh?",
+    "aboutText": "ResuMesh is built to bridge the gap between a static resume and a dynamic portfolio. As an open-source project, it empowers developers to showcase their experiences, articles, and projects in a beautifully cohesive, highly performant platform."
+  }
+}

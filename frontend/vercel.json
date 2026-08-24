@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/resumes/(.*)",
+      "dest": "/resumes/$1"
+    },
+    {
+      "src": "/(favicon\\.ico|robots\\.txt|content\\.json|sitemap\\.xml|manifest\\.json|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.gif|.*\\.svg|.*\\.webp|.*\\.ico|.*\\.pdf|.*\\.txt|.*\\.json)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

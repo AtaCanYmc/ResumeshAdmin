@@ -1,0 +1,13 @@
+from app.db.repositories.article import IArticleRepository  # noqa: F401
+from app.db.repositories.certificate import ICertificateRepository  # noqa: F401
+from app.db.repositories.education import IEducationRepository  # noqa: F401
+from app.db.repositories.experience import IExperienceRepository  # noqa: F401
+from app.db.repositories.package import IPackageRepository  # noqa: F401
+from app.db.repositories.post import IPostRepository  # noqa: F401
+from app.db.repositories.project import IProjectRepository  # noqa: F401
+from app.db.repositories.search import ISearchRepository  # noqa: F401
+from app.db.repositories.section import ISectionRepository  # noqa: F401
+from app.db.repositories.skill import ISkillRepository  # noqa: F401
+from app.db.repositories.social_link import ISocialLinkRepository  # noqa: F401
+from app.db.repositories.system_log import ISystemLogRepository  # noqa: F401
+from app.db.repositories.video import IVideoRepository  # noqa: F401

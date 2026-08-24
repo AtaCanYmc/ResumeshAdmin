@@ -1,0 +1,96 @@
+{
+  "wakeup": {
+    "title": "Sunucu Uyandırılıyor",
+    "description": "ResuMesh bulut kaynaklarını otomatik olarak başlatıyor. Sunucu ilk kez açılırken bu işlem yaklaşık 30-50 saniye sürebilir.",
+    "status": "Oturum Bekleniyor..."
+  },
+  "nav": {
+    "about": "Hakkımda",
+    "experiences": "Deneyimler",
+    "educations": "Eğitim",
+    "skills": "Yetenekler",
+    "projects": "Projeler",
+    "articles": "Makaleler",
+    "certificates": "Sertifikalar",
+    "admin": "Admin"
+  },
+  "search": {
+    "placeholder": "Yetenek, proje, sertifika veya makale ara...",
+    "open": "Aramayı Aç",
+    "close": "Aramayı Kapat",
+    "clear": "Aramayı Temizle",
+    "noResultsTitle": "Sonuç bulunamadı",
+    "noResultsDesc": "Lütfen farklı bir terim ile tekrar deneyin.",
+    "projects": "Projeler",
+    "experiences": "Deneyimler",
+    "articles": "Makaleler",
+    "certificates": "Sertifikalar"
+  },
+  "hero": {
+    "downloadResume": "Özgeçmişimi İndir",
+    "downloadingResume": "PDF İndiriliyor...",
+    "viewProjects": "Projelerimi İncele"
+  },
+  "common": {
+    "noDescription": "Açıklama bulunmuyor.",
+    "readMore": "Devamını Oku",
+    "viewOnGithub": "GitHub'da Görüntüle"
+  },
+  "projects": {
+    "title": "Projeler",
+    "subtitle": "Açık kaynaklı ve kişisel projelerim.",
+    "filter": "Platform: {{platform}}",
+    "emptyTitle": "Henüz Proje Bulunamadı",
+    "emptyDesc": "Sistemde henüz yayınlanmış bir proje bulunmuyor. Lütfen daha sonra tekrar kontrol edin."
+  },
+  "articles": {
+    "title": "Makaleler",
+    "subtitle": "Teknik yazılarım ve paylaşımlarım.",
+    "emptyTitle": "Makale Bulunamadı",
+    "emptyDesc": "Bu platformda ({{platform}}) henüz yayınlanmış bir makale bulunmuyor."
+  },
+  "certificates": {
+    "title": "Sertifikalar",
+    "subtitle": "Sahip olduğum lisanslar ve yetkinlik belgeleri.",
+    "emptyTitle": "Sertifika Bulunamadı",
+    "emptyDesc": "Sistemde henüz yayınlanmış bir sertifika bulunmuyor."
+  },
+  "experiences": {
+    "title": "İş Deneyimleri",
+    "subtitle": "Kariyer yolculuğum ve profesyonel geçmişim.",
+    "emptyTitle": "Deneyim Bulunamadı",
+    "emptyDesc": "Henüz deneyim eklenmemiş."
+  },
+  "educations": {
+    "title": "Eğitim Hayatı",
+    "subtitle": "Akademik geçmişim ve eğitim yolculuğum.",
+    "emptyTitle": "Eğitim Bulunamadı",
+    "emptyDesc": "Henüz eğitim eklenmemiş."
+  },
+  "skills": {
+    "title": "Yetenekler",
+    "subtitle": "Sahip olduğum teknik beceriler ve uzmanlık alanları.",
+    "emptyTitle": "Yetenek Bulunamadı",
+    "emptyDesc": "Henüz sisteme bir yetenek eklenmemiş."
+  },
+  "logs": {
+    "empty": "Gösterilecek log bulunamadı."
+  },
+  "home": {
+    "greeting": "Ben",
+    "featuredProjects": "Öne Çıkan Çalışmalar",
+    "careerTimeline": "Kariyer Özeti",
+    "skills": "Yetenekler & Teknolojiler",
+    "skillsSubtitle": "Uzmanlaştığım teknolojiler ve yeteneklerimin kategorize edilmiş genel görünümü.",
+    "recentArticles": "Son Yazılar",
+    "readArticle": "Makaleyi Oku"
+  },
+  "footer": {
+    "connect": "İletişim",
+    "allRightsReserved": "Tüm hakları saklıdır.",
+    "builtWith": "ile",
+    "by": "tarafından geliştirildi",
+    "aboutTitle": "Neden ResuMesh?",
+    "aboutText": "ResuMesh, statik bir özgeçmiş ile dinamik bir portfolyo arasındaki boşluğu doldurmak için geliştirildi. Açık kaynaklı bir proje olarak, geliştiricilerin deneyimlerini, makalelerini ve projelerini estetik ve yüksek performanslı bir platformda sergilemelerine olanak tanır."
+  }
+}
