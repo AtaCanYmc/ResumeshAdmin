@@ -22,6 +22,19 @@ import { useAuth } from '../../context/AuthContext';
 import { useEnv } from '../../hooks/useEnv';
 import { Experience } from '../../types';
 
+function formatDate(dateStr?: string): string {
+  if (!dateStr) return '';
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) {
+      return dateStr;
+    }
+    return d.toLocaleDateString(undefined, { month: 'short', year: 'numeric' });
+  } catch {
+    return dateStr;
+  }
+}
+
 export default function AdminExperiences() {
   const { token } = useAuth();
   const { ADMIN_API_URL } = useEnv();
@@ -84,7 +97,7 @@ export default function AdminExperiences() {
 
     return (
       (exp.title || '').toLowerCase().includes(q) ||
-      (exp.company_name || exp.company || '').toLowerCase().includes(q) ||
+      (exp.company_name || (exp as any).company || '').toLowerCase().includes(q) ||
       (exp.location || '').toLowerCase().includes(q) ||
       (exp.description || '').toLowerCase().includes(q)
     );
@@ -141,7 +154,7 @@ export default function AdminExperiences() {
           {filteredExperiences.map((exp) => (
             <div
               key={exp.id}
-              className="group relative flex flex-col justify-between rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
+              className="group relative flex flex-col justify-between rounded-xl border border-gray-200 bg-white p-5 shadow-xs transition-all duration-200 hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
             >
               <div>
                 <div className="mb-3 flex items-start justify-between gap-3">
@@ -179,7 +192,7 @@ export default function AdminExperiences() {
                 <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-700 dark:text-gray-300">
                   <span className="flex items-center gap-1 font-semibold text-gray-900 dark:text-gray-100">
                     <Building2 size={13} className="text-gray-400" />
-                    {exp.company_name || exp.company || 'Company'}
+                    {exp.company_name || (exp as any).company || 'Company'}
                   </span>
                   {exp.location && (
                     <span className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
@@ -197,26 +210,18 @@ export default function AdminExperiences() {
               <div className="flex items-center justify-between border-t border-gray-100 pt-3 text-xs text-gray-500 dark:border-gray-800/80 dark:text-gray-400">
                 <span className="flex items-center gap-1 font-mono text-[11px]">
                   <Calendar size={13} className="text-gray-400" />
-                  {exp.start_date
-                    ? new Date(exp.start_date).toLocaleDateString(undefined, {
-                        month: 'short',
-                        year: 'numeric',
-                      })
-                    : ''}{' '}
-                  -{' '}
-                  {exp.is_current
+                  {formatDate(exp.start_date)}
+                  {(exp.start_date || exp.end_date || (exp as any).is_current) && ' - '}
+                  {(exp as any).is_current
                     ? 'Present'
                     : exp.end_date
-                    ? new Date(exp.end_date).toLocaleDateString(undefined, {
-                        month: 'short',
-                        year: 'numeric',
-                      })
+                    ? formatDate(exp.end_date)
                     : 'Present'}
                 </span>
 
-                {exp.employment_type && (
+                {(exp as any).employment_type && (
                   <span className="rounded bg-gray-100 px-2 py-0.5 font-mono text-[11px] text-gray-600 dark:bg-gray-800 dark:text-gray-400">
-                    {exp.employment_type}
+                    {(exp as any).employment_type}
                   </span>
                 )}
               </div>
@@ -231,7 +236,7 @@ export default function AdminExperiences() {
         onConfirm={confirmDelete}
         title="Delete Experience"
         message={`Are you sure you want to delete "${experienceToDelete?.title} at ${
-          experienceToDelete?.company_name || experienceToDelete?.company
+          experienceToDelete?.company_name || (experienceToDelete as any)?.company
         }"? This action cannot be undone.`}
         isDeleting={deleteMutation.isPending}
       />

@@ -16,6 +16,7 @@ const schema = z.object({
   location: z.string().optional(),
   start_date: z.string().min(1, 'Start date is required'),
   end_date: z.string().optional(),
+  is_current: z.boolean().optional(),
   description: z.string().optional(),
   skills: z.string().optional(),
 });
@@ -33,18 +34,21 @@ export default function ExperienceFormModal({ isOpen, onClose, experience }: Exp
   const { ADMIN_API_URL } = useEnv();
   const queryClient = useQueryClient();
 
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<ExperienceFormData>({
+  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm<ExperienceFormData>({
     resolver: zodResolver(schema),
   });
+
+  const isCurrent = watch('is_current');
 
   useEffect(() => {
     if (experience) {
       reset({
-        title: experience.title,
-        company_name: experience.company_name,
+        title: experience.title || '',
+        company_name: experience.company_name || (experience as any).company || '',
         location: experience.location || '',
         start_date: experience.start_date ? experience.start_date.slice(0, 10) : '',
         end_date: experience.end_date ? experience.end_date.slice(0, 10) : '',
+        is_current: (experience as any).is_current || !experience.end_date,
         description: experience.description || '',
         skills: Array.isArray(experience.skills) ? experience.skills.join(', ') : '',
       });
@@ -55,6 +59,7 @@ export default function ExperienceFormModal({ isOpen, onClose, experience }: Exp
         location: '',
         start_date: '',
         end_date: '',
+        is_current: false,
         description: '',
         skills: '',
       });
