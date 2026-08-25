@@ -35,7 +35,7 @@ export default function AdminAiCv() {
   const defaultReactiveResumeData = {
     title: 'Tailored AI Resume',
     basics: {
-      name: config?.hero?.fullName || config?.hero?.name || 'Ata Can Yılmaz',
+      name: config?.hero?.fullName || config?.hero?.name,
       headline: 'Senior Full Stack Software Engineer',
       email: 'atacanymc@resumesh.dev',
       url: { label: 'Portfolio', href: 'https://resumesh.dev' },
@@ -113,7 +113,7 @@ export default function AdminAiCv() {
               cvData.basics?.name ||
               config?.hero?.fullName ||
               config?.hero?.name ||
-              'Ata Can Yılmaz',
+              'Ata Can Yaymacı',
             headline: cvData.basics?.headline || 'Senior Software Engineer',
             email: cvData.basics?.email || 'atacanymc@resumesh.dev',
             url: cvData.basics?.url || {
