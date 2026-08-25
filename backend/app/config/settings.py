@@ -6,6 +6,13 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    APP_NAME: str = "ResuMesh Admin Backend API"
+    ENVIRONMENT: str = "development"
+    DEBUG: bool = True
+    PORT: int = 8001
+    HOST: str = "0.0.0.0"
+    LOG_LEVEL: str = "INFO"
+
     CORS_ORIGINS: Union[List[str], str] = [
         "http://localhost:5173",
         "http://localhost:8081",
@@ -14,7 +21,6 @@ class Settings(BaseSettings):
         "http://127.0.0.1",
     ]
     CORS_ALLOWED_ORIGINS: str = ""
-    ENVIRONMENT: str = "development"
     DATABASE_URL: str = (
         "postgresql://postgres:resumesh_dev_password_987@localhost:5432/resumesh"
     )
@@ -23,7 +29,11 @@ class Settings(BaseSettings):
     SUPABASE_URL: str = ""
     SUPABASE_KEY: str = ""
     SUPABASE_JWT_SECRET: str = ""
+
+    # Auth & JWT Secrets
     JWT_SECRET_KEY: str = "test-secret-key"
+    JWT_ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 1440
 
     # Ingestion / Scraper Settings
     GITHUB_USERNAME: str = ""
@@ -53,6 +63,7 @@ class Settings(BaseSettings):
     # Reactive Resume Settings
     REACTIVE_RESUME_URL: str = "https://rxresu.me"
     REACTIVE_RESUME_API_KEY: str = ""
+    RXRESUME_API_KEY: str = ""
 
     # Frontend settings
     FRONTEND_URL: str = "https://resumesh.dev"
@@ -61,7 +72,9 @@ class Settings(BaseSettings):
     ADMIN_USERNAME: str = "admin"
     ADMIN_PASSWORD: str = "adminpass"
 
-    # Redeploy Webhook Settings
+    # Feature Flags & Redeploy Webhooks
+    ENABLE_ADMIN_WORKSPACE: bool = True
+    ENABLE_CRON_JOBS: bool = True
     DEPLOY_WEBHOOK_URL: str = ""
 
     @field_validator("CORS_ORIGINS", mode="before")
@@ -90,6 +103,8 @@ class Settings(BaseSettings):
         super().__init__(**values)
         if not self.SUPABASE_JWT_SECRET:
             self.SUPABASE_JWT_SECRET = self.JWT_SECRET_KEY
+        if not self.REACTIVE_RESUME_API_KEY and self.RXRESUME_API_KEY:
+            self.REACTIVE_RESUME_API_KEY = self.RXRESUME_API_KEY
         if self.ENVIRONMENT.lower() != "development" and isinstance(
             self.CORS_ORIGINS, list
         ):
